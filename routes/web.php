@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ViewblogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class,'allPost'])->name('home');
+Route::get('/blog/view/{id}',[ViewblogController::class, 'index'])->name('post_view');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/blog',[PostController::class, 'index'])->name('post_index');
+    Route::post('/blog',[PostController::class, 'create'])->name('post_create');
+    
+    Route::get('/dashboard', [HomeController::class, 'allPost'])->name('dashboard');
+    Route::get('/blog/edit/{id}',[PostController::class, 'edit'])->name('post_edit');
+    Route::put('/blog/edit/{id}',[PostController::class, 'update'])->name('post_update');
+    Route::get('/blog/delete/{id}',[PostController::class, 'destroy'])->name('post_delete');
+});
+ 
 
 require __DIR__.'/auth.php';
