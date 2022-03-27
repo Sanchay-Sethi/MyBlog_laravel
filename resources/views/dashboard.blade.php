@@ -1,13 +1,17 @@
-<x-app-layout>
+
+
+<x-app-layout  >
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My All Blogs >') }}
+            <div class="alert alert-dark" role="alert">
+                {{ Auth::user()->name }} all blogs ✍🏻
+            </div>
         </h2>
     </x-slot>
 
     
 
-    <div class="py-12">
+    <div class="py-12" style= "position : relative; " >
         @if(session()->has('status'))
             <div  class="bg-indigo-900 text-center py-4 lg:px-4" style = "position : relative; background-color :rgb(11, 47, 63); margin : 2px 10px; border-radius : 15px;">
                 <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert" style = "background-color :rgb(21, 98, 131); color : white; margin : 2px 15px; border-radius : 15px;">
@@ -58,3 +62,4 @@
         </div>
     </div>
 </x-app-layout>
+

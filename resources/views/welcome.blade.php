@@ -1,8 +1,11 @@
+
+
 <x-app-layout>
     <x-slot name="header">
+        <marquee scrollamount="15"  onmouseover="this.stop();" onmouseout="this.start();" style = "width : 100%" direction = "left" loop="">👋 Welcome to best blog website!😊 Here you can add you blog easily as pancake and share your views to the whole world! So what are you waiting for! Make a blog and explore your dream..</marquee>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-6">
         @if(session()->has('status'))
             <div  class="bg-indigo-900 text-center py-4 lg:px-4" style = "position : relative; background-color :rgb(11, 47, 63); margin : 2px 10px; border-radius : 15px;">
                 <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert" style = "background-color :rgb(21, 98, 131); color : white; margin : 2px 15px; border-radius : 15px;">
@@ -15,9 +18,41 @@
                 </form>
             </div> 
          @endif
+         
+         <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img style = "object-fit : cover" src="{{URL('assets/banner1.png')}}" class="d-block w-100 h-75" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style = "object-fit : cover" src="{{URL('assets/banner2.png')}}" class="d-block w-100 h-75" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style = "object-fit : cover" src="{{URL('assets/banner3.png')}}" class="d-block w-100 h-75" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style = "object-fit : cover" src="{{URL('assets/banner4.png')}}" class="d-block w-100 h-75" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style = "object-fit : cover" src="{{URL('assets/banner5.png')}}" class="d-block w-100 h-75" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <marquee behavior="alternate" scrollamount="15"  onmouseover="this.stop();" onmouseout="this.start();" style = "width : 100%" direction = "left" loop="">Explore the timeline of all latest blogs !</marquee>
+        </div>
        
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 " style = "margin : 20px 0px">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-full" style = "border-radius: 15px;">
                 <h4 class = "px-6 py-4">Timeline</h4>
                 <div class="bg-white border-b border-gray-200" style = "display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-evenly; align-items:center; ">

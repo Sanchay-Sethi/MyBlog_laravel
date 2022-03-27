@@ -1,15 +1,30 @@
+
+<head>
+    <style>
+        .min-h-screen {
+            background : url("assets/bg1.jpg");
+            background-size : cover;
+            background-position: center;
+          }
+    </style>
+</head>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </a> --}}
         </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
+            <a href="/">
+            <div style = "width: 100%; display : flex; justify-content: center; align-items: center">
+                <x-application-logo />
+            </div>
+            </a>
             @csrf
 
             <!-- Name -->

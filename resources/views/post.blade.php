@@ -1,7 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Your Blog') }}
+            <div class="alert alert-dark" role="alert">
+                Add Your Views
+            </div>
         </h2>
     </x-slot>
     <div class = "py-2">
